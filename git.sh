@@ -5,7 +5,7 @@ git add .
 git commit -m "New commit"
 num=11
 if [ $# -gt 1 ]; then
-  echo "The number is greater than 10."
+  exit 2
 fi
 git remote add origin https://github.com/freelstephen2026/OOG.git
 git push origin master
