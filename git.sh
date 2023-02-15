@@ -1,5 +1,5 @@
 # note: `$#` is argc - 1, $1 is arg 1, $2 is arg 2, and so on.
-argc=$# - 1
+# argc=$# - 1
 num=1
 git pull
 git init
