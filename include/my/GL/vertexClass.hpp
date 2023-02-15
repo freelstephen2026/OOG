@@ -1,5 +1,5 @@
-#ifndef _VERTEXCLASS_HPP
-#define _VERTEXCLASS_HPP
+#ifndef _MY_GL_VERTEXCLASS_HPP
+#define _MY_GL_VERTEXCLASS_HPP
 
 namespace my
 {
@@ -23,18 +23,18 @@ namespace my
 
 				my::GL::vertices::objectClass insert_triangle(std::pair<float, float> P1, std::pair<float, float> P2, std::pair<float, float> P3)
 				{
-					std::cout << "function call to non-static my::GL::vertices::objectClass::insert_triangle(std::pair<float, float>, std::pair<float, float>, std::pair<float, float>, std::pair<float, float>" << std::endl;
-					std::cout << "------------------------------------" << std::endl;
+					// std::cout << "function call to non-static my::GL::vertices::objectClass::insert_triangle(std::pair<float, float>, std::pair<float, float>, std::pair<float, float>, std::pair<float, float>" << std::endl;
+					// std::cout << "------------------------------------" << std::endl;
 					std::vector<float> new_triangle = std::vector<float>(); /* will have 9 elements (2+1)*3  */
 					new_triangle.push_back(P1.first); new_triangle.push_back(P1.second); new_triangle.push_back(1.0f);
 					new_triangle.push_back(P2.first); new_triangle.push_back(P2.second); new_triangle.push_back(1.0f);
 					new_triangle.push_back(P3.first); new_triangle.push_back(P3.second); new_triangle.push_back(1.0f);
 					for (int i = 0; i < new_triangle.size(); i+= 3)
 					{
-						std::cout << i / 3 << ": " << new_triangle.at(i) << ", " << new_triangle.at(i + 1) << ", " << new_triangle.at(i + 2) << std::endl;
+						// std::cout << i / 3 << ": " << new_triangle.at(i) << ", " << new_triangle.at(i + 1) << ", " << new_triangle.at(i + 2) << std::endl;
 					}
 					triangles.push_back(new_triangle);
-					std::cout << "------------------------------------\n" << std::endl;
+					// std::cout << "------------------------------------\n" << std::endl;
 
 					return *this;
 				}
@@ -43,11 +43,11 @@ namespace my
 				objectClass()
 				{
 					solid = false;
-					std::cout << "function call to constructor my::GL::vertices::objectClass::objectClass(void)" << std::endl;
-					std::cout << "------------------------------------" << std::endl;
+					// std::cout << "function call to constructor my::GL::vertices::objectClass::objectClass(void)" << std::endl;
+					// std::cout << "------------------------------------" << std::endl;
 					triangles = std::vector<std::vector<float>>();
-					std::cout << "triangles = {}" << std::endl;
-					std::cout << "------------------------------------\n" << std::endl;
+					// std::cout << "triangles = {}" << std::endl;
+					// std::cout << "------------------------------------\n" << std::endl;
 				}
 
 				static my::GL::vertices::objectClass quad(std::pair<float, float>P1, std::pair<float, float>P2, std::pair<float, float>P3, std::pair<float, float>P4)
@@ -61,40 +61,19 @@ namespace my
 
 				my::GL::vertices::objectClass translate(float x, float y)
 				{
-					if (solid)
-						return *this;
-			
-					/* because of the return statement on the previous line, we do not need the `else` statement here. */
+					std::cout << "number of triangles before: " << triangles.size() << std::endl;
+					
 					for (int i = 0; i < triangles.size(); i++)
 					{
-						std::cout << "triangle #" << i << ": (" << triangles.at(i).at(0) << ", " << triangles.at(i).at(1) << ") => (" << triangles.at(i).at(0) + x << ", " << triangles.at(i).at(1) + y << ")" << std::endl;
-						std::vector<std::vector<float>> triangles_new = triangles;
-						triangles.at(i).at(0) += x;
-						triangles.at(i).at(1) += y;
+					    triangles.at(i).at(0) += x; triangles.at(i).at(1) += y;
+					    triangles.at(i).at(3) += x; triangles.at(i).at(4) += y;
+					    triangles.at(i).at(6) += x; triangles.at(i).at(7) += y;
 					}
-					std::cout << "new vec val:" << std::endl;
-					for (int i = 0; i < triangles.size(); i++)
-					{
-						std::cout << "\t" << triangles.at(i).at(0) << ", " << triangles.at(i).at(0) << std::endl;
-					}
-
-					std::vector<std::vector<float>> triangles_new;
-					std::vector<float> to_push_back;
-					for (int i = 0; i < triangles.size(); i++)
-					{
-						to_push_back = std::vector<float>();
-						to_push_back.push_back(triangles.at(i).at(0));
-						to_push_back.push_back(triangles.at(i).at(1));
-						triangles_new.push_back(to_push_back);
-					}
-					triangles = triangles_new;
 
 					return *this;
 				}
 			};
-		private:
 			std::vector<objectClass> objects;
-		public:
 			vertices()
 			{
 				objects = std::vector<objectClass>();
@@ -110,16 +89,13 @@ namespace my
 					{
 						for (int k = 0; k < objects.at(i).triangles.at(j).size(); k++)
 						{
-							std::cout << "float_vec pushing back " << objects.at(i).triangles.at(j).at(k) << std::endl;
+							// std::cout << "float_vec pushing back " << objects.at(i).triangles.at(j).at(k) << std::endl;
 							ret.push_back(objects.at(i).triangles.at(j).at(k));
 						}
 					}
 				}
-				std::cout << "float_vec returning the following float objects:" << std::endl;
-				for (int i = 0; i < ret.size(); i++)
-				{
-					std::cout << "\t1: " << ret.at(i) << std::endl;
-				}
+				std::cout << "float_vec has " << ret.size() << " floats." << std::endl;
+				
 				return ret;
 			}
 
