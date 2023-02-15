@@ -3,7 +3,7 @@
 git pull
 git init
 git add .
-git commit -m "New commit"
+git commit -m "Fixed the issue with my::GL::vertices::objectClass::translate(float, float) changing the total amount of floating point numbers to 4"
 # commented out code didn't work:
 # ```printf "%c%c = %d" '$' '#' $#
 # if [ $# -eq 0 ]; then
