@@ -6,7 +6,7 @@ git init
 git add .
 git commit -m "New commit"
 num=11
-printf "argc = %d" $#
+# printf "argc = %d" $#
 if [ $num -gt $argc ]; then
     echo hifdsafdsafahgtjywjywwkyawsk6yasjk6ysj6ysjkysrjykysrysjy6ts
 fi
