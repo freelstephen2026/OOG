@@ -6,7 +6,7 @@ git init
 git add .
 git commit -m "New commit"
 num=11
-printf "$# = %d" $#
+printf "%c%c = %d" $ '#' $#
 if [ $argc -eq 0 ]; then
     echo expected arg after `./git.sh`
 fi
