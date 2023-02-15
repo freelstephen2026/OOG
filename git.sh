@@ -3,7 +3,7 @@ git pull
 git init
 git add .
 git commit -m "New commit"
-if ($# > 1)
+if [$# -gt 1]; then
     echo hi
 git remote add origin https://github.com/freelstephen2026/OOG.git
 git push origin master
