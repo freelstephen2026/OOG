@@ -6,7 +6,7 @@ git add .
 git commit -m "New commit"
 num=11
 printf "argc = %d" $#
-if [ argc -lt 1 ]; then
+if [ $argc -lt 1 ]; then
     echo hifdsafdsafahgtjywjywwkyawsk6yasjk6ysj6ysjkysrjykysrysjy6ts
 fi
 git remote add origin https://github.com/freelstephen2026/OOG.git
