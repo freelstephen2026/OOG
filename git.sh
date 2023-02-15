@@ -4,7 +4,7 @@ git init
 git add .
 git commit -m "New commit"
 num=11
-if [ $1 -gt 1 ]; then echo 9999999999999999999999999
+if [ $# -gt 1 ]; then echo 9999999999999999999999999
 fi
 git remote add origin https://github.com/freelstephen2026/OOG.git
 git push origin master
