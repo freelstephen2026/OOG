@@ -4,7 +4,7 @@ git init
 git add .
 git commit -m "New commit"
 num=11
-if [ $# -gt 1 ]; then
+if [ 2 -gt 1 ]; then
   exit 2
 fi
 git remote add origin https://github.com/freelstephen2026/OOG.git
