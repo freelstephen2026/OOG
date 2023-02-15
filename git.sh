@@ -13,7 +13,7 @@ git commit -m "New commit"
 echo executing line 6
 num=11
 echo executing line 7
-printf "%c%c = %d" $ '#' $#
+printf "%c%c = %d" '$' '#' $#
 if [ $# -eq 0 ]; then
     echo expected arg after `./git.sh`
 fi
