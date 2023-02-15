@@ -5,5 +5,6 @@ git add .
 git commit -m "New commit"
 if [$# -gt 1]; then
     echo hi
+fi
 git remote add origin https://github.com/freelstephen2026/OOG.git
 git push origin master
