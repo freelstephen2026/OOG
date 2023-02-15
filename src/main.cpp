@@ -1,12 +1,16 @@
+/* C Standard Library */
 #include <cstdlib>
 
+/* C++ Standard Library */
 #include <fstream>
 #include <iostream>
 #include <vector>
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+/* OpenGL */
+#include <glad/glad.h> /* Modern OpenGL */
+#include <GLFW/glfw3.h> /* Legacy OpenGL */
 
+/* From this project */
 #include <my/GL.hpp>
 
 namespace tests
@@ -135,7 +139,7 @@ int glMain(int argc, char** argv)
 		if (window->getKey(GLFW_KEY_W))
 		{
 			std::cout << "moving object up" << std::endl;
-			vertices->objects.at(0).translate(0.01f, 0.0f);
+			vertices->objects.at(0).translate(0.00f, 0.01f);
 			tests::print(vertices->float_vec());
 			std::cout << "float vec size: " << vertices->float_vec().size() << std::endl;
 			updateVertexObjects(VAO, VBO, *vertices);
@@ -144,7 +148,7 @@ int glMain(int argc, char** argv)
 		else if (window->getKey(GLFW_KEY_S))
 		{
 			std::cout << "moving object down" << std::endl;
-			vertices->objects.at(0).translate(-0.01f, 0.0f);
+			vertices->objects.at(0).translate(0.00f, -0.01f);
 		}
 
 	    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
